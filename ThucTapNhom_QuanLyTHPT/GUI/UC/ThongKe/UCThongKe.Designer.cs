@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCThongKe));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn = new System.Windows.Forms.Button();
@@ -47,6 +46,7 @@
             this.panel1.Controls.Add(this.cbOption_ThongKe);
             this.panel1.Controls.Add(this.btnThongKe);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1171, 69);
@@ -59,7 +59,7 @@
             this.btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Tomato;
             this.btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tomato;
             this.btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn.Location = new System.Drawing.Point(999, 19);
             this.btn.Name = "btn";
             this.btn.Size = new System.Drawing.Size(146, 32);
@@ -81,29 +81,32 @@
             // 
             this.cbOption_ThongKe.BackColor = System.Drawing.SystemColors.Control;
             this.cbOption_ThongKe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbOption_ThongKe.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbOption_ThongKe.FormattingEnabled = true;
+            this.cbOption_ThongKe.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbOption_ThongKe.ItemHeight = 20;
             this.cbOption_ThongKe.Items.AddRange(new object[] {
-            "Học sinh - Lớp Học",
-            "Giáo Viên - Chức Vụ",
             "Danh sách môn học",
-            "Số lượng học sinh theo lớp",
-            "Số giáo viên theo chức vụ",
+            "Giáo Viên - Chức Vụ",
             "Học lực của học sinh theo học kỳ",
+            "Học sinh - Lớp Học",
+            "Số giáo viên theo chức vụ",
+            "Số lượng học sinh theo lớp",
             "Sô tiết dạy của giáo viên trong 1 tuần"});
             this.cbOption_ThongKe.Location = new System.Drawing.Point(12, 22);
             this.cbOption_ThongKe.Name = "cbOption_ThongKe";
-            this.cbOption_ThongKe.Size = new System.Drawing.Size(339, 29);
+            this.cbOption_ThongKe.Size = new System.Drawing.Size(339, 28);
+            this.cbOption_ThongKe.Sorted = true;
             this.cbOption_ThongKe.TabIndex = 1;
             this.cbOption_ThongKe.Tag = "";
+            this.cbOption_ThongKe.SelectedIndexChanged += new System.EventHandler(this.cbOption_ThongKe_SelectedIndexChanged);
             // 
             // btnThongKe
             // 
-            this.btnThongKe.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKe.Image")));
-            this.btnThongKe.Location = new System.Drawing.Point(357, 20);
+            this.btnThongKe.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThongKe.Location = new System.Drawing.Point(357, 22);
             this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(34, 34);
+            this.btnThongKe.Size = new System.Drawing.Size(88, 28);
             this.btnThongKe.TabIndex = 2;
+            this.btnThongKe.Text = "Xem";
             this.btnThongKe.UseVisualStyleBackColor = true;
             this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
             // 

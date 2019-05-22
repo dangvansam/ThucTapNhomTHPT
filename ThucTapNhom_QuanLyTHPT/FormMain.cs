@@ -24,10 +24,11 @@ namespace ThucTapNhom_QuanLyTHPT
         public FormMain()
         {
             InitializeComponent();
+            
         }
-
         private void Main_Load(object sender, EventArgs e)
         {
+            //this.Icon = new Icon("Resources/icon.ico");
             ClearRenderbody();
             UCHome uCHome = new UCHome();
             uCHome.TopLevel = false;
@@ -154,6 +155,21 @@ namespace ThucTapNhom_QuanLyTHPT
             uCThongKe.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
             pnlBody.Controls.Add(uCThongKe);
             uCThongKe.Show();
+        }
+
+        private void pnlBody_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lbUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlHeader_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

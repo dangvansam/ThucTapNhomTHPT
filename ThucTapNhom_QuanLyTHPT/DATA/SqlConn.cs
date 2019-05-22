@@ -25,7 +25,7 @@ namespace ThucTapNhom_QuanLyTHPT.DATA
         //    return conn;
         //}
 
-        string connString = @"Data Source=.;Initial Catalog=ThucTapNhom_QuanLyTruongTHPT;Integrated Security=True";
+        string connString = @"Data Source=DESKTOP-9JAUKO7\SQLEXPRESS;Initial Catalog=TTN_THPT;Integrated Security=True";
         SqlConnection conn = null;
 
         public SqlConnection Conn

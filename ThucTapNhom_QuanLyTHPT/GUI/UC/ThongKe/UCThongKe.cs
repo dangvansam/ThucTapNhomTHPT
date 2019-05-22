@@ -127,5 +127,10 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.ThongKe
         {
 
         }
+
+        private void cbOption_ThongKe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

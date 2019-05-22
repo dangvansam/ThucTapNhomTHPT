@@ -38,6 +38,12 @@
             this.txtSearch_BangDiem = new System.Windows.Forms.TextBox();
             this.btnSearch_BangDiem = new System.Windows.Forms.Button();
             this.dgvBangDiem = new System.Windows.Forms.DataGridView();
+            this.colMaHocSinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaGiaoVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNamHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDiemTrungBinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlThongTin_BangDiem = new System.Windows.Forms.Panel();
             this.txtMaMonHoc = new System.Windows.Forms.TextBox();
             this.txtNamHoc = new System.Windows.Forms.TextBox();
@@ -54,12 +60,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaHocSinh = new System.Windows.Forms.TextBox();
             this.lbMaLop = new System.Windows.Forms.Label();
-            this.colMaHocSinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaGiaoVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNamHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDiemTrungBinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBangDiem)).BeginInit();
             this.pnlThongTin_BangDiem.SuspendLayout();
@@ -193,7 +193,59 @@
             this.dgvBangDiem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBangDiem.Size = new System.Drawing.Size(1171, 404);
             this.dgvBangDiem.TabIndex = 10;
+            this.dgvBangDiem.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBangDiem_CellContentClick);
             this.dgvBangDiem.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvLopHoc_MouseClick);
+            // 
+            // colMaHocSinh
+            // 
+            this.colMaHocSinh.DataPropertyName = "mahocsinh";
+            this.colMaHocSinh.HeaderText = "Mã học sinh";
+            this.colMaHocSinh.Name = "colMaHocSinh";
+            this.colMaHocSinh.ReadOnly = true;
+            this.colMaHocSinh.Width = 150;
+            // 
+            // colMaGiaoVien
+            // 
+            this.colMaGiaoVien.DataPropertyName = "magiaovien";
+            this.colMaGiaoVien.FillWeight = 200F;
+            this.colMaGiaoVien.HeaderText = "Mã giáo viên";
+            this.colMaGiaoVien.Name = "colMaGiaoVien";
+            this.colMaGiaoVien.ReadOnly = true;
+            this.colMaGiaoVien.Width = 150;
+            // 
+            // colMaMonHoc
+            // 
+            this.colMaMonHoc.DataPropertyName = "mamonhoc";
+            this.colMaMonHoc.FillWeight = 150F;
+            this.colMaMonHoc.HeaderText = "Mã môn học";
+            this.colMaMonHoc.Name = "colMaMonHoc";
+            this.colMaMonHoc.ReadOnly = true;
+            this.colMaMonHoc.Width = 150;
+            // 
+            // colNamHoc
+            // 
+            this.colNamHoc.DataPropertyName = "namhoc";
+            this.colNamHoc.FillWeight = 150F;
+            this.colNamHoc.HeaderText = "Năm học";
+            this.colNamHoc.Name = "colNamHoc";
+            this.colNamHoc.ReadOnly = true;
+            this.colNamHoc.Width = 150;
+            // 
+            // colHocKy
+            // 
+            this.colHocKy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colHocKy.DataPropertyName = "hocki";
+            this.colHocKy.HeaderText = "Học kỳ";
+            this.colHocKy.Name = "colHocKy";
+            this.colHocKy.ReadOnly = true;
+            // 
+            // colDiemTrungBinh
+            // 
+            this.colDiemTrungBinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDiemTrungBinh.DataPropertyName = "diemtrungbinh";
+            this.colDiemTrungBinh.HeaderText = "Điểm trung bình";
+            this.colDiemTrungBinh.Name = "colDiemTrungBinh";
+            this.colDiemTrungBinh.ReadOnly = true;
             // 
             // pnlThongTin_BangDiem
             // 
@@ -375,57 +427,6 @@
             this.lbMaLop.Size = new System.Drawing.Size(84, 17);
             this.lbMaLop.TabIndex = 33;
             this.lbMaLop.Text = "Mã học sinh";
-            // 
-            // colMaHocSinh
-            // 
-            this.colMaHocSinh.DataPropertyName = "mahocsinh";
-            this.colMaHocSinh.HeaderText = "Mã học sinh";
-            this.colMaHocSinh.Name = "colMaHocSinh";
-            this.colMaHocSinh.ReadOnly = true;
-            this.colMaHocSinh.Width = 150;
-            // 
-            // colMaGiaoVien
-            // 
-            this.colMaGiaoVien.DataPropertyName = "magiaovien";
-            this.colMaGiaoVien.FillWeight = 200F;
-            this.colMaGiaoVien.HeaderText = "Mã giáo viên";
-            this.colMaGiaoVien.Name = "colMaGiaoVien";
-            this.colMaGiaoVien.ReadOnly = true;
-            this.colMaGiaoVien.Width = 150;
-            // 
-            // colMaMonHoc
-            // 
-            this.colMaMonHoc.DataPropertyName = "mamonhoc";
-            this.colMaMonHoc.FillWeight = 150F;
-            this.colMaMonHoc.HeaderText = "Mã môn học";
-            this.colMaMonHoc.Name = "colMaMonHoc";
-            this.colMaMonHoc.ReadOnly = true;
-            this.colMaMonHoc.Width = 150;
-            // 
-            // colNamHoc
-            // 
-            this.colNamHoc.DataPropertyName = "namhoc";
-            this.colNamHoc.FillWeight = 150F;
-            this.colNamHoc.HeaderText = "Năm học";
-            this.colNamHoc.Name = "colNamHoc";
-            this.colNamHoc.ReadOnly = true;
-            this.colNamHoc.Width = 150;
-            // 
-            // colHocKy
-            // 
-            this.colHocKy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colHocKy.DataPropertyName = "hocki";
-            this.colHocKy.HeaderText = "Học kỳ";
-            this.colHocKy.Name = "colHocKy";
-            this.colHocKy.ReadOnly = true;
-            // 
-            // colDiemTrungBinh
-            // 
-            this.colDiemTrungBinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDiemTrungBinh.DataPropertyName = "diemtrungbinh";
-            this.colDiemTrungBinh.HeaderText = "Điểm trung bình";
-            this.colDiemTrungBinh.Name = "colDiemTrungBinh";
-            this.colDiemTrungBinh.ReadOnly = true;
             // 
             // UCBangDiem
             // 

@@ -23,6 +23,19 @@ namespace ThucTapNhom_QuanLyTHPT.DATA
             cmd.Parameters.AddWithValue("diemtrungbinh", bd.DiemTrungBinh);
             cmd.ExecuteNonQuery();
         }
+        public void updateBangDiem(BangDiem bd)
+        {
+            openConn();
+            string query = "update BangDiem magiaovien=@magiaovien, mamonhoc=@mamonhoc,namhoc=@namhoc, hocki=@hocki, diemtrungbinh=@diemtrungbinh where mahocsinh = @mahocsinh";
+            SqlCommand cmd = new SqlCommand(query, Conn);
+            cmd.Parameters.AddWithValue("mahocsinh", bd.MaHocSinh);
+            cmd.Parameters.AddWithValue("magiaovien", bd.MaGiaoVien);
+            cmd.Parameters.AddWithValue("mamonhoc", bd.MaMonHoc);
+            cmd.Parameters.AddWithValue("namhoc", bd.NamHoc);
+            cmd.Parameters.AddWithValue("hocki", bd.HocKy);
+            cmd.Parameters.AddWithValue("diemtrungbinh", bd.DiemTrungBinh);
+            cmd.ExecuteNonQuery();
+        }
         public void deleteBangDiem(BangDiem bd)
         {
             try

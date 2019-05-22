@@ -122,17 +122,20 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.BangDiem
             }
         }
 
+        bool u = false;
         private void btnThem_BangDiem_Click(object sender, EventArgs e)
         {
             pnlThongTin_BangDiem.Visible = true;
             dgvBangDiem.Height = 404;
             ClearText();
             OpenControl();
+            u = false;
         }
 
         private void btnSua_BangDiem_Click(object sender, EventArgs e)
         {
             OpenControl();
+            u = true;
         }
 
         private void btnXoa_BangDiem_Click(object sender, EventArgs e)
@@ -177,9 +180,22 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.BangDiem
         {
             ENTITY.BangDiem bd = new ENTITY.BangDiem(txtMaHocSinh.Text.Trim(), txtMaGiaoVien.Text.Trim(), txtMaMonHoc.Text.Trim(), int.Parse(txtNamHoc.Text.Trim()), int.Parse(txtHocKy.Text.Trim()), float.Parse(txtDiemTrungBinh.Text.Trim()));
             DATA.BangDiem_Controler b = new DATA.BangDiem_Controler();
-            b.insertBangDiem(bd);
+            if (u == false)
+            {
+                b.insertBangDiem(bd);
+            }
+            else
+            {
+                b.updateBangDiem(bd);
+            }
+            
             loadDataGirdView();
             LockControl();
+        }
+
+        private void dgvBangDiem_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

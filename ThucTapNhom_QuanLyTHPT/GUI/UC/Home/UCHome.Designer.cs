@@ -40,6 +40,8 @@
             this.ClientSize = new System.Drawing.Size(1171, 610);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "UCHome";
             this.Text = "UCHome";
             this.ResumeLayout(false);

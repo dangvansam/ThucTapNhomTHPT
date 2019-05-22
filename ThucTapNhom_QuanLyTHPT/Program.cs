@@ -8,15 +8,20 @@ namespace ThucTapNhom_QuanLyTHPT
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMain());
+            //FormLogin lg_f = new FormLogin();
+            //Application.Run(lg_f);
+            //if (lg_f.check_true)
+            //{
+            //    Application.Run(new FormMain());
+            //}
+
         }
     }
 }

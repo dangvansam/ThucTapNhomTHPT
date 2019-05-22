@@ -30,6 +30,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>H:\BunifuFrameWork\bin\updates\Bunifu UI 1.5.3\Bunifu_UI_v1.5.3.dll</HintPath>
@@ -124,6 +132,13 @@
     <Compile Include="GUI\UC\ThongKe\UCThongKe.Designer.cs">
       <DependentUpon>UCThongKe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs" />
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormMain.resx">
@@ -156,6 +171,9 @@
     <EmbeddedResource Include="GUI\UC\ThongKe\UCThongKe.resx">
       <DependentUpon>UCThongKe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -164,6 +182,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -181,6 +200,18 @@
   <ItemGroup>
     <Folder Include="GUI\Class\" />
     <Folder Include="GUI\UC\Login\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logogoc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logogoc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
