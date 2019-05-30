@@ -23,6 +23,19 @@ namespace ThucTapNhom_QuanLyTHPT.DATA
             cmd.ExecuteNonQuery();
 
         }
+        public void updateLopHoc(LopHoc lh)
+        {
+            openConn();
+            string query = "update Lop set tenlop=@tenlop, ngaybatdau=@ngaybatdau, ngayketthuc=@ngayketthuc, magvchunhiem=@magvchunhiem where malop=@malop";
+            SqlCommand cmd = new SqlCommand(query, Conn);
+            cmd.Parameters.AddWithValue("@malop", lh.MaLop);
+            cmd.Parameters.AddWithValue("@tenlop", lh.TenLop);
+            cmd.Parameters.AddWithValue("@ngaybatdau", lh.NgayBatDau);
+            cmd.Parameters.AddWithValue("@ngayketthuc", lh.NgayKetThuc);
+            cmd.Parameters.AddWithValue("@magvchunhiem", lh.MaGiaoVienChuNhiem);
+            cmd.ExecuteNonQuery();
+
+        }
         public void deleteLop(LopHoc lh)
         {
             try

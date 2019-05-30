@@ -16,9 +16,9 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.HocSinh
         {
             InitializeComponent();
             DataGridViewColStyle();
-
+            
         }
-
+        bool update = false;
         #region Func Form
         private void LockControl()
         {
@@ -78,6 +78,7 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.HocSinh
             LockControl();
             pnlThongTin.Visible = false;
             dgvHocSinh.Height = this.Height;
+
             #region testdata
             //for (int i = 0; i < 30; i++)
             //{
@@ -160,8 +161,24 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.HocSinh
             {
                 txtMaHocSinh.Text = dgvHocSinh.SelectedRows[0].Cells[0].Value.ToString();
                 txtHoTen.Text = dgvHocSinh.SelectedRows[0].Cells[1].Value.ToString();
-               // dtNgaySinh.Text = dgvHocSinh.SelectedRows[0].Cells[2].Value.ToString();
-               // txtGioiTinh.Text = dgvHocSinh.SelectedRows[0].Cells[3].Value.ToString();
+                //MessageBox.Show(dgvHocSinh.SelectedRows[0].Cells[3].Value.ToString());
+                DateTime dt = Convert.ToDateTime(dgvHocSinh.SelectedRows[0].Cells[3].Value.ToString());
+                //MessageBox.Show(dt.ToShortDateString());
+                dtNgaySinh.Text = dt.ToShortDateString();
+                //dtNgaySinh.Text = String.Format("{0:dd-MM-yyyy}", dt);
+                //MessageBox.Show(String.Format("{0:MM/dd/yyyy}", dt));
+                //txtGioiTinh.Text = dgvHocSinh.SelectedRows[0].Cells[2].Value.ToString();
+                string gt = dgvHocSinh.SelectedRows[0].Cells[2].Value.ToString();
+                if(gt == "True")
+                {
+                    rbNam.Checked = true;
+                    rbNu.Checked = false;
+                }
+                else
+                {
+                    rbNu.Checked = true;
+                    rbNam.Checked = false;
+                }
                 txtDanToc.Text = dgvHocSinh.SelectedRows[0].Cells[4].Value.ToString();
                 txtTonGiao.Text = dgvHocSinh.SelectedRows[0].Cells[5].Value.ToString();
                 txtDiaChi.Text = dgvHocSinh.SelectedRows[0].Cells[6].Value.ToString();
@@ -185,6 +202,7 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.HocSinh
 
         private void btnThem_HocSinh_Click_1(object sender, EventArgs e)
         {
+            update = false;
             pnlThongTin.Visible = true;
             dgvHocSinh.Height = 362;
             ClearText();
@@ -193,6 +211,7 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.HocSinh
 
         private void btnSua_HocSinh_Click(object sender, EventArgs e)
         {
+            update = true;
             OpenControl();
         }
 
@@ -218,9 +237,13 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.HocSinh
 
         private void btnLuu_HocSinh_Click(object sender, EventArgs e)
         {
+
             ENTITY.HocSinh hs = new ENTITY.HocSinh(txtMaHocSinh.Text.Trim(), txtHoTen.Text.Trim(), checkGioiTinh(), dtNgaySinh.Value, txtDanToc.Text.Trim(), txtTonGiao.Text.Trim(), txtDiaChi.Text.Trim(), txtQueQuan.Text.Trim(), txtThongTinPhuHuynh.Text.Trim(), txtSdtLienHe.Text.Trim(), txtMaLop.Text.Trim());
             DATA.HocSinh_Controler h = new DATA.HocSinh_Controler();
-            h.insertHocSinh(hs);
+            if (update == false)
+                h.insertHocSinh(hs);
+            else
+                h.updateHocSinh(hs);
             loadDataGirdView();
             LockControl();
         }
@@ -233,5 +256,20 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.HocSinh
             loadDataGirdView();
             LockControl();
         }
+
+        private void rbNu_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void dtNgaySinh_ValueChanged(object sender, EventArgs e)
+        {
+ 
+        }
+
+        private void rbNam_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

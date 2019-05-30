@@ -19,6 +19,15 @@ namespace ThucTapNhom_QuanLyTHPT.DATA
             cmd.Parameters.AddWithValue("@tencv", cv.TenChucVu);
             cmd.ExecuteNonQuery();
         }
+        public void updateChucVu(ChucVu cv)
+        {
+            openConn();
+            string query = "update ChucVu set tenchucvu=@tencv where macv= @macv";
+            SqlCommand cmd = new SqlCommand(query, Conn);
+            cmd.Parameters.AddWithValue("@macv", cv.MaChucVu);
+            cmd.Parameters.AddWithValue("@tencv", cv.TenChucVu);
+            cmd.ExecuteNonQuery();
+        }
         public void deleteChucVu(ChucVu cv)
         {
             try

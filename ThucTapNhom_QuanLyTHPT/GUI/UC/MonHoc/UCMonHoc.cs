@@ -77,9 +77,10 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.MonHoc
                 txtTenMonHoc.Text = dgvMonHoc.SelectedRows[0].Cells[1].Value.ToString();
             }
         }
-
+        bool c = false;
         private void btnThem_MonHoc_Click(object sender, EventArgs e)
         {
+            c = false;
             pnlThongTin_MonHoc.Visible = true;
             dgvMonHoc.Height = 481;
             ClearText();
@@ -88,6 +89,7 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.MonHoc
 
         private void btnSua_MonHoc_Click(object sender, EventArgs e)
         {
+            c = true;
             OpenControl();
         }
 
@@ -121,7 +123,12 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.MonHoc
         {
             ENTITY.MonHoc mh = new ENTITY.MonHoc(txtMaMonHoc.Text.Trim(), txtTenMonHoc.Text.Trim());
             DATA.MonHoc_Controler m = new DATA.MonHoc_Controler();
-            m.insertMonHoc(mh);
+            if (c == false)
+            {
+                m.insertMonHoc(mh);
+            }
+            else
+                m.updateMonHoc(mh);
             loadDataGirdView();
             LockControl();
         }

@@ -22,6 +22,15 @@ namespace ThucTapNhom_QuanLyTHPT.DATA
             cmd.Parameters.AddWithValue("@tenmonhoc", mh.TenMonHoc);
             cmd.ExecuteNonQuery();
         }
+        public void updateMonHoc(MonHoc mh)
+        {
+            openConn();
+            string query = "update MonHoc set tenmonhoc=@tenmonhoc where mamonhoc=@mamonhoc";
+            SqlCommand cmd = new SqlCommand(query, Conn);
+            cmd.Parameters.AddWithValue("@mamonhoc", mh.MaMonHoc);
+            cmd.Parameters.AddWithValue("@tenmonhoc", mh.TenMonHoc);
+            cmd.ExecuteNonQuery();
+        }
         public void deleteMonHoc(MonHoc mh)
         {
             try

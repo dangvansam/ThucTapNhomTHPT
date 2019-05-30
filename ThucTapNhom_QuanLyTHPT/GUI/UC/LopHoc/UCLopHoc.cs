@@ -97,13 +97,18 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.LopHoc
                 txtMaLopHoc.Text = dgvLopHoc.SelectedRows[0].Cells[0].Value.ToString();
                 txtTenLopHoc.Text = dgvLopHoc.SelectedRows[0].Cells[1].Value.ToString();
                 //dtNgayBatDau.Text = dgvLopHoc.SelectedRows[0].Cells[2].Value.ToString();
+                DateTime ngaybd = Convert.ToDateTime(dgvLopHoc.SelectedRows[0].Cells[2].Value.ToString());
+                dtNgayBatDau.Text = ngaybd.ToShortDateString();
                 //dtNgayKetThuc.Text = dgvLopHoc.SelectedRows[0].Cells[3].Value.ToString();
+                DateTime ngaykt = Convert.ToDateTime(dgvLopHoc.SelectedRows[0].Cells[3].Value.ToString());
+                dtNgayKetThuc.Text = ngaykt.ToShortDateString();
                 txtMaGiaoVienChuNhiem.Text = dgvLopHoc.SelectedRows[0].Cells[4].Value.ToString();
             }
         }
-
+        bool c = false;
         private void btnThem_LopHoc_Click(object sender, EventArgs e)
         {
+            c = false;
             pnlThongTin_LopHoc.Visible = true;
             dgvLopHoc.Height = 426;
             ClearText();
@@ -112,6 +117,7 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.LopHoc
 
         private void btnSua_LopHoc_Click(object sender, EventArgs e)
         {
+            c = true;
             OpenControl();
         }
 
@@ -145,7 +151,13 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.LopHoc
         {
             ENTITY.LopHoc l = new ENTITY.LopHoc(txtMaLopHoc.Text.Trim(), txtTenLopHoc.Text.Trim(), dtNgayBatDau.Value, dtNgayKetThuc.Value, txtMaGiaoVienChuNhiem.Text.Trim());
             DATA.LopHoc_Controler lh = new DATA.LopHoc_Controler();
-            lh.insertLopHoc(l);
+            if (c == false)
+            {
+                lh.insertLopHoc(l);
+            }
+            else
+                lh.updateLopHoc(l);
+            
             loadDataGirdView();
             LockControl();
         }

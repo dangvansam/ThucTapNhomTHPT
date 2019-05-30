@@ -24,8 +24,8 @@ namespace ThucTapNhom_QuanLyTHPT
         public FormMain()
         {
             InitializeComponent();
+            
         }
-
         private void Main_Load(object sender, EventArgs e)
         {
             ClearRenderbody();
@@ -154,6 +154,31 @@ namespace ThucTapNhom_QuanLyTHPT
             uCThongKe.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
             pnlBody.Controls.Add(uCThongKe);
             uCThongKe.Show();
+        }
+
+        private void pnlBody_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lbUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlHeader_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Phần mềm quản lý học sinh giáo viên THPT v1.0 by dangvansam98@gmail.com MTA 2019");
         }
     }
 }

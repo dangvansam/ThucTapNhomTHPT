@@ -114,25 +114,28 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.BangDiem
             if (dgvBangDiem.Rows.Count > 0)
             {
                 txtMaHocSinh.Text = dgvBangDiem.SelectedRows[0].Cells[0].Value.ToString();
-                txtMaHocSinh.Text = dgvBangDiem.SelectedRows[0].Cells[1].Value.ToString();
-                txtMaMonHoc.Text = dgvBangDiem.SelectedRows[0].Cells[1].Value.ToString();
-                txtNamHoc.Text = dgvBangDiem.SelectedRows[0].Cells[1].Value.ToString();
-                txtHocKy.Text = dgvBangDiem.SelectedRows[0].Cells[1].Value.ToString();
-                txtDiemTrungBinh.Text = dgvBangDiem.SelectedRows[0].Cells[4].Value.ToString();
+                txtMaGiaoVien.Text = dgvBangDiem.SelectedRows[0].Cells[1].Value.ToString();
+                txtMaMonHoc.Text = dgvBangDiem.SelectedRows[0].Cells[2].Value.ToString();
+                txtNamHoc.Text = dgvBangDiem.SelectedRows[0].Cells[3].Value.ToString();
+                txtHocKy.Text = dgvBangDiem.SelectedRows[0].Cells[4].Value.ToString();
+                txtDiemTrungBinh.Text = dgvBangDiem.SelectedRows[0].Cells[5].Value.ToString();
             }
         }
 
+        bool u = false;
         private void btnThem_BangDiem_Click(object sender, EventArgs e)
         {
             pnlThongTin_BangDiem.Visible = true;
             dgvBangDiem.Height = 404;
             ClearText();
             OpenControl();
+            u = false;
         }
 
         private void btnSua_BangDiem_Click(object sender, EventArgs e)
         {
             OpenControl();
+            u = true;
         }
 
         private void btnXoa_BangDiem_Click(object sender, EventArgs e)
@@ -177,9 +180,22 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.BangDiem
         {
             ENTITY.BangDiem bd = new ENTITY.BangDiem(txtMaHocSinh.Text.Trim(), txtMaGiaoVien.Text.Trim(), txtMaMonHoc.Text.Trim(), int.Parse(txtNamHoc.Text.Trim()), int.Parse(txtHocKy.Text.Trim()), float.Parse(txtDiemTrungBinh.Text.Trim()));
             DATA.BangDiem_Controler b = new DATA.BangDiem_Controler();
-            b.insertBangDiem(bd);
+            if (u == false)
+            {
+                b.insertBangDiem(bd);
+            }
+            else
+            {
+                b.updateBangDiem(bd);
+            }
+            
             loadDataGirdView();
             LockControl();
+        }
+
+        private void dgvBangDiem_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

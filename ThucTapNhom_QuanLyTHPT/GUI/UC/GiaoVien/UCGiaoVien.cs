@@ -136,26 +136,46 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.GiaoVien
                 txtTenGiaoVien.Text = dgvGiaoVien.SelectedRows[0].Cells[1].Value.ToString();
                 // dtNgaySinh.Text = dgvGiaoVien.SelectedRows[0].Cells[2].Value.ToString();
                 // txtGioiTinh.Text = dgvGiaoVien.SelectedRows[0].Cells[3].Value.ToString();
+                DateTime dt = Convert.ToDateTime(dgvGiaoVien.SelectedRows[0].Cells[2].Value.ToString());
+                dtNgaySinh.Text = dt.ToShortDateString();
+                //dtNgaySinh.Text = String.Format("{0:dd-MM-yyyy}", dt);
+                //MessageBox.Show(dt.ToShortDateString());
+                //txtGioiTinh.Text = dgvHocSinh.SelectedRows[0].Cells[2].Value.ToString();
+                string gt = dgvGiaoVien.SelectedRows[0].Cells[3].Value.ToString();
+                if (gt == "True")
+                {
+                    rbNam.Checked = true;
+                    rbNu.Checked = false;
+                }
+                else
+                {
+                    rbNu.Checked = true;
+                    rbNam.Checked = false;
+                }
                 txtDiaChi.Text = dgvGiaoVien.SelectedRows[0].Cells[4].Value.ToString();
                 txtQueQuan.Text = dgvGiaoVien.SelectedRows[0].Cells[5].Value.ToString();
                 txtSdt.Text = dgvGiaoVien.SelectedRows[0].Cells[6].Value.ToString();
-                txtTrinhDo.Text = dgvGiaoVien.SelectedRows[0].Cells[7].Value.ToString();
-                txtLuongCoBan.Text = dgvGiaoVien.SelectedRows[0].Cells[8].Value.ToString();
-                txtMaChucVu.Text = dgvGiaoVien.SelectedRows[0].Cells[9].Value.ToString();
+                txtTrinhDo.Text = dgvGiaoVien.SelectedRows[0].Cells[8].Value.ToString();
+                txtLuongCoBan.Text = dgvGiaoVien.SelectedRows[0].Cells[9].Value.ToString();
+                txtMaChucVu.Text = dgvGiaoVien.SelectedRows[0].Cells[10].Value.ToString();
             }
         }
 
+        bool update = false;
         private void btnThem_GiaoVien_Click(object sender, EventArgs e)
         {
             pnlThongTin_GiaoVien.Visible = true;
             dgvGiaoVien.Height = 362;
             ClearText();
             OpenControl();
+            update = false;
         }
 
+        
         private void btnSua_GiaoVien_Click(object sender, EventArgs e)
         {
             OpenControl();
+            update = true;
         }
 
         private void btnXoa_GiaoVien_Click(object sender, EventArgs e)
@@ -163,7 +183,8 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.GiaoVien
             ENTITY.GiaoVien gv = new ENTITY.GiaoVien(txtMaGiaoVien.Text.Trim(), txtTenGiaoVien.Text.Trim(), checkGioiTinh(), dtNgaySinh.Value, txtDiaChi.Text.Trim(), txtQueQuan.Text.Trim(), txtSdt.Text.Trim(), txtTrinhDo.Text.Trim(), float.Parse(txtLuongCoBan.Text.Trim()), txtMaChucVu.Text.Trim());
             DATA.GiaoVien_Controler g = new DATA.GiaoVien_Controler();
             DATA.ChucVu_Controler c = new DATA.ChucVu_Controler();
-            g.deleteGiaoVien(gv);
+            //MessageBox.Show(gv.MaGiaoVien,gv.TenGiaoVien);
+            g.deleteGiaoVien(txtMaGiaoVien.Text.Trim());
             loadDataGirdView();
             LockControl();
         }
@@ -201,11 +222,26 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.GiaoVien
 
         private void btnLuu_GiaoVien_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(txtLuongCoBan.Text.Trim());
             ENTITY.GiaoVien gv = new ENTITY.GiaoVien(txtMaGiaoVien.Text.Trim(), txtTenGiaoVien.Text.Trim(), checkGioiTinh(), dtNgaySinh.Value, txtDiaChi.Text.Trim(), txtQueQuan.Text.Trim(), txtSdt.Text.Trim(), txtTrinhDo.Text.Trim(), float.Parse(txtLuongCoBan.Text.Trim()), txtMaChucVu.Text.Trim());
             DATA.GiaoVien_Controler g = new DATA.GiaoVien_Controler();
-            g.insertGiaoVien(gv);
+
+            if (update == false)
+                g.insertGiaoVien(gv);
+            else
+                g.updateGiaoVien(gv);
             loadDataGirdView();
             LockControl();
+        }
+
+        private void rbNu_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLuongCoBan_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

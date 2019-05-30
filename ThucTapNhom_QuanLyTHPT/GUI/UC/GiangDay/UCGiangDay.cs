@@ -121,9 +121,10 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.GiangDay
                 txtSoTiet.Text = dgvGiangDay.SelectedRows[0].Cells[5].Value.ToString();
             }
         }
-
+        bool c = false;
         private void btnThem_GiangDay_Click(object sender, EventArgs e)
         {
+            c = false;
             pnlThongTin_GiangDay.Visible = true;
             dgvGiangDay.Height = 408;
             ClearText();
@@ -132,6 +133,7 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.GiangDay
 
         private void btnSua_GiangDay_Click(object sender, EventArgs e)
         {
+            c = true;
             OpenControl();
         }
 
@@ -165,7 +167,12 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.GiangDay
         {
             ENTITY.GiangDay gd = new ENTITY.GiangDay(txtMaGiaoVien.Text.Trim(), txtMaLop.Text.Trim(), txtMaMonHoc.Text.Trim(), txtThu.Text.Trim(), int.Parse(txtTiet.Text.Trim()), int.Parse(txtSoTiet.Text.Trim()));
             DATA.GiangDay_Controler g = new DATA.GiangDay_Controler();
-            g.insertGiangDay(gd);
+            if (c == false)
+            {
+                g.insertGiangDay(gd);
+            }
+            else
+                g.updateGiangDay(gd);
             loadDataGirdView();
             LockControl();
         }

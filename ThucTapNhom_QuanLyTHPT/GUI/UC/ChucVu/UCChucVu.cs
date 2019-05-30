@@ -90,9 +90,10 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.ChucVu
                 txtTenChucVu.Text = dgvChucVu.SelectedRows[0].Cells[1].Value.ToString();
             }
         }
-
+        bool c = false;
         private void btnThem_ChucVu_Click(object sender, EventArgs e)
         {
+            c = false;
             pnlThongTin_ChucVu.Visible = true;
             dgvChucVu.Height = 481;
             ClearText();
@@ -101,6 +102,7 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.ChucVu
 
         private void btnSua_ChucVu_Click(object sender, EventArgs e)
         {
+            c = true;
             OpenControl();
         }
 
@@ -133,8 +135,13 @@ namespace ThucTapNhom_QuanLyTHPT.GUI.UC.ChucVu
         private void btnLuu_GiaoVien_Click(object sender, EventArgs e)
         {
             ENTITY.ChucVu cv = new ENTITY.ChucVu(txtMaChucVu.Text.Trim(), txtTenChucVu.Text.Trim());
-            DATA.ChucVu_Controler c = new DATA.ChucVu_Controler();
-            c.insertChucVu(cv);
+            DATA.ChucVu_Controler cc = new DATA.ChucVu_Controler();
+            if (c == false)
+            {
+                cc.insertChucVu(cv);
+            }
+            else
+                cc.updateChucVu(cv);
             loadDataGirdView();
             LockControl();
         }

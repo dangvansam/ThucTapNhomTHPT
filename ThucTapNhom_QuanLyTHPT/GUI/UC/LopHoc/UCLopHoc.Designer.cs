@@ -38,6 +38,11 @@
             this.txtSearch_LopHoc = new System.Windows.Forms.TextBox();
             this.btnSearch_LopHoc = new System.Windows.Forms.Button();
             this.dgvLopHoc = new System.Windows.Forms.DataGridView();
+            this.colMaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTenLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTrinhDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLuongCoBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbMaLop = new System.Windows.Forms.Label();
             this.txtMaLopHoc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,11 +57,6 @@
             this.pnlThongTin_LopHoc = new System.Windows.Forms.Panel();
             this.dtNgayKetThuc = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.colMaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTenLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTrinhDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLuongCoBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLopHoc)).BeginInit();
             this.pnlThongTin_LopHoc.SuspendLayout();
@@ -191,6 +191,48 @@
             this.dgvLopHoc.TabIndex = 9;
             this.dgvLopHoc.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvLopHoc_MouseClick);
             // 
+            // colMaLop
+            // 
+            this.colMaLop.DataPropertyName = "malop";
+            this.colMaLop.HeaderText = "Mã lớp học";
+            this.colMaLop.Name = "colMaLop";
+            this.colMaLop.ReadOnly = true;
+            // 
+            // colTenLop
+            // 
+            this.colTenLop.DataPropertyName = "tenlop";
+            this.colTenLop.FillWeight = 200F;
+            this.colTenLop.HeaderText = "Tên lớp học";
+            this.colTenLop.Name = "colTenLop";
+            this.colTenLop.ReadOnly = true;
+            this.colTenLop.Width = 200;
+            // 
+            // colTrinhDo
+            // 
+            this.colTrinhDo.DataPropertyName = "ngaybatdau";
+            this.colTrinhDo.FillWeight = 150F;
+            this.colTrinhDo.HeaderText = "Ngày bắt đầu";
+            this.colTrinhDo.Name = "colTrinhDo";
+            this.colTrinhDo.ReadOnly = true;
+            this.colTrinhDo.Width = 200;
+            // 
+            // colLuongCoBan
+            // 
+            this.colLuongCoBan.DataPropertyName = "ngayketthuc";
+            this.colLuongCoBan.FillWeight = 150F;
+            this.colLuongCoBan.HeaderText = "Ngày kết thúc";
+            this.colLuongCoBan.Name = "colLuongCoBan";
+            this.colLuongCoBan.ReadOnly = true;
+            this.colLuongCoBan.Width = 200;
+            // 
+            // colMaChucVu
+            // 
+            this.colMaChucVu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMaChucVu.DataPropertyName = "magvchunhiem";
+            this.colMaChucVu.HeaderText = "Mã giáo viên chủ nhiệm";
+            this.colMaChucVu.Name = "colMaChucVu";
+            this.colMaChucVu.ReadOnly = true;
+            // 
             // lbMaLop
             // 
             this.lbMaLop.AutoSize = true;
@@ -291,6 +333,7 @@
             this.dtNgayBatDau.AllowDrop = true;
             this.dtNgayBatDau.CustomFormat = "yyyy/MM/dd";
             this.dtNgayBatDau.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtNgayBatDau.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtNgayBatDau.Location = new System.Drawing.Point(498, 6);
             this.dtNgayBatDau.Name = "dtNgayBatDau";
             this.dtNgayBatDau.Size = new System.Drawing.Size(255, 23);
@@ -341,6 +384,7 @@
             this.dtNgayKetThuc.AllowDrop = true;
             this.dtNgayKetThuc.CustomFormat = "yyyy/MM/dd";
             this.dtNgayKetThuc.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtNgayKetThuc.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtNgayKetThuc.Location = new System.Drawing.Point(498, 48);
             this.dtNgayKetThuc.Name = "dtNgayKetThuc";
             this.dtNgayKetThuc.Size = new System.Drawing.Size(255, 23);
@@ -355,48 +399,6 @@
             this.label4.Size = new System.Drawing.Size(99, 17);
             this.label4.TabIndex = 62;
             this.label4.Text = "Ngày kết thúc";
-            // 
-            // colMaLop
-            // 
-            this.colMaLop.DataPropertyName = "malop";
-            this.colMaLop.HeaderText = "Mã lớp học";
-            this.colMaLop.Name = "colMaLop";
-            this.colMaLop.ReadOnly = true;
-            // 
-            // colTenLop
-            // 
-            this.colTenLop.DataPropertyName = "tenlop";
-            this.colTenLop.FillWeight = 200F;
-            this.colTenLop.HeaderText = "Tên lớp học";
-            this.colTenLop.Name = "colTenLop";
-            this.colTenLop.ReadOnly = true;
-            this.colTenLop.Width = 200;
-            // 
-            // colTrinhDo
-            // 
-            this.colTrinhDo.DataPropertyName = "ngaybatdau";
-            this.colTrinhDo.FillWeight = 150F;
-            this.colTrinhDo.HeaderText = "Ngày bắt đầu";
-            this.colTrinhDo.Name = "colTrinhDo";
-            this.colTrinhDo.ReadOnly = true;
-            this.colTrinhDo.Width = 200;
-            // 
-            // colLuongCoBan
-            // 
-            this.colLuongCoBan.DataPropertyName = "ngayketthuc";
-            this.colLuongCoBan.FillWeight = 150F;
-            this.colLuongCoBan.HeaderText = "Ngày kết thúc";
-            this.colLuongCoBan.Name = "colLuongCoBan";
-            this.colLuongCoBan.ReadOnly = true;
-            this.colLuongCoBan.Width = 200;
-            // 
-            // colMaChucVu
-            // 
-            this.colMaChucVu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colMaChucVu.DataPropertyName = "magvchunhiem";
-            this.colMaChucVu.HeaderText = "Mã giáo viên chủ nhiệm";
-            this.colMaChucVu.Name = "colMaChucVu";
-            this.colMaChucVu.ReadOnly = true;
             // 
             // UCLopHoc
             // 
